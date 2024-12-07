@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-# React + Vite
+Netflix Landing Page 2024 Version
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-=======
-# Netflix-Landing-Page
->>>>>>> 7204ab1bcbe406fc09fa7ae89cb7636d0ec88c8b
+Here is the live website: https://ydctnr.github.io/Netflix-Landing-Page/
