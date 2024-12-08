@@ -30,12 +30,14 @@ const Hero = ({ language, onLanguageChange }) => {
           <p className='text-[1rem] xl:text-[1.25rem] mb-3 xl:mb-7'>{t('heroP')}</p>
         </div>
 
-        <form className='max-md:px-6 max-lg:px-36'>
+        <form className='xl:w-[45%] flex flex-col max-md:px-6 max-lg:px-36'>
           <h3 className='text-center md:max-w-[26rem] lg:max-w-[31.5rem] lg:mt-3'>{t('formH3')}</h3>
             
-          <div className="w-full flex max-md:flex-col max-md:gap-4 max-md:items-center justify-center gap-2">
-            <div className="w-full inline-flex relative items-center">
-              <input 
+          <div className="w-full flex max-md:flex-col max-md:items-center justify-center gap-2">
+            <div className="w-full flex flex-col relative">
+              
+              <div className='w-full flex relative items-center'>
+                <input 
                 type='email' 
                 minLength={5} 
                 maxLength={50} 
@@ -44,17 +46,20 @@ const Hero = ({ language, onLanguageChange }) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-              />
-              <label 
+                />
+                <label 
                 className="absolute ml-4 text-grayish-anchor pointer-events-none transition-all 
                   duration-300 ease-in-out 
                   peer-placeholder-shown:text-base peer-placeholder-shown:mt-4 
                   peer-focus:text-[0.75rem] peer-focus:-mt-6"
-              >
+                >
                 {t('email')}
-              </label>
+                </label>
+              </div>
+
+            <div className='flex max-md:py-2 pt-2'>
               {emailError && (
-                <div className='absolute flex gap-1.5 items-center bottom-[-1.7rem] left-0'>
+                <div className='flex gap-1.5 items-center'>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -73,23 +78,29 @@ const Hero = ({ language, onLanguageChange }) => {
                   </svg>
                   <p className="text-warning-red text-[0.8125rem]">{emailError}</p>
                 </div>
-              )}
+              )}    
             </div>
 
-            <button 
+            </div>
+
+            <div>
+              <button 
               type="button" 
               onClick={handleGetStartedClick}
-              className="w-[16rem] xl:w-[19rem] max-md:w-[10rem] inline-flex justify-center items-center text-center gap-2 px-6 max-lg:px-4 py-3 bg-btn-red hover:bg-btn-red-hover rounded-[0.25rem] text-[1.125rem] xl:text-[1.5rem]"
-            >
+              className="w-[11rem] xl:w-[12.9rem] max-md:w-[10rem] flex justify-center items-center text-center gap-2 px-6 max-lg:px-4 py-3 md:py-4 xl:py-[11px] bg-btn-red hover:bg-btn-red-hover rounded-[0.25rem] text-[1.125rem] xl:text-[1.5rem]"
+              >
               {t('button')}
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24">
                   <path fillRule="evenodd" clipRule="evenodd" d="M15.5859 12L8.29303 19.2928L9.70725 20.7071L17.7072 12.7071C17.8948 12.5195 18.0001 12.2652 18.0001 12C18.0001 11.7347 17.8948 11.4804 17.7072 11.2928L9.70724 3.29285L8.29303 4.70706L15.5859 12Z" fill="currentColor"></path>
                 </svg>
               </div>
-            </button>
+              </button>
+            </div>
+
           </div>
         </form>
+        
       </div>
 
       <div className="bg-curve-gradient absolute bottom-0 left-1/2 transform -translate-x-1/2 h-[6.25rem] max-md:w-[200%] w-[150%] xl:w-[129%]"

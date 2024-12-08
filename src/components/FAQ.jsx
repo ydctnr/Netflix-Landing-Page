@@ -81,28 +81,33 @@ const Faq = () => {
         <form className='w-full mt-10'>
         <h3 className='lg:max-w-[40rem] md:text-center'>{t('formH3')}</h3>
 
-        <div className="w-full lg:px-24 flex max-md:flex-col max-md:gap-4 justify-center gap-2">
-          <div className="w-full relative inline-flex items-center">
-            <input 
-            type='email' 
-            minLength={5} 
-            maxLength={50} 
-            name='email' 
-            className={`w-full bg-bg-input border-[0.0625rem] border-input-border rounded-[0.25rem] px-4 pb-2 pt-6 peer ${emailError ? 'border-red-500' : 'border-input-border'}`} 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            />
-            <label 
-            className="absolute ml-4 text-grayish-anchor pointer-events-none transition-all 
+        <div className="w-full lg:px-24 flex max-md:flex-col justify-center gap-2">
+          <div className="w-full relative flex flex-col">
+            
+            <div className='w-full flex relative items-center'>
+              <input 
+              type='email' 
+              minLength={5} 
+              maxLength={50} 
+              name='email' 
+              className={`w-full bg-bg-input border-[0.0625rem] border-input-border rounded-[0.25rem] px-4 pb-2 pt-6 peer ${emailError ? 'border-red-500' : 'border-input-border'}`} 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              />
+              <label 
+              className="absolute ml-4 text-grayish-anchor pointer-events-none transition-all 
                duration-300 ease-in-out 
                peer-placeholder-shown:text-base peer-placeholder-shown:mt-4 
                peer-focus:text-[0.75rem] peer-focus:-mt-6"
-            >
-            {t('email')}
-            </label>
-            {emailError && (
-                <div className='absolute flex gap-1.5 items-center bottom-[-1.7rem] left-0'>
+              >
+              {t('email')}
+              </label>
+            </div>
+
+            <div className='flex max-md:py-2 pt-2'>
+              {emailError && (
+                <div className='flex gap-1.5 items-center'>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -123,14 +128,20 @@ const Faq = () => {
                 </div>
               )}
             </div>
-            <button 
-            type="button" 
-            onClick={handleGetStartedClick}
-            className="w-[14rem] xl:w-[16rem] max-md:w-[10rem] inline-flex justify-center items-center text-center gap-2 px-6 max-lg:px-4 py-3 bg-btn-red hover:bg-btn-red-hover rounded-[0.25rem] text-[1.125rem] xl:text-[1.5rem]">{t('button')}
-              <div>
-               <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="ChevronRightStandard" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.5859 12L8.29303 19.2928L9.70725 20.7071L17.7072 12.7071C17.8948 12.5195 18.0001 12.2652 18.0001 12C18.0001 11.7347 17.8948 11.4804 17.7072 11.2928L9.70724 3.29285L8.29303 4.70706L15.5859 12Z" fill="currentColor"></path></svg>
-              </div>
-            </button>
+
+            </div>
+
+            <div>
+              <button 
+              type="button" 
+              onClick={handleGetStartedClick}
+              className="w-[11rem] xl:w-[14rem] max-md:w-[10rem] flex justify-center items-center text-center gap-2 px-6 max-lg:px-4 py-3 md:py-4 xl:py-[11px] bg-btn-red hover:bg-btn-red-hover rounded-[0.25rem] text-[1.125rem] xl:text-[1.5rem]">{t('button')}
+               <div>
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="ChevronRightStandard" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.5859 12L8.29303 19.2928L9.70725 20.7071L17.7072 12.7071C17.8948 12.5195 18.0001 12.2652 18.0001 12C18.0001 11.7347 17.8948 11.4804 17.7072 11.2928L9.70724 3.29285L8.29303 4.70706L15.5859 12Z" fill="currentColor"></path></svg>
+               </div>
+              </button>
+            </div>
+            
         </div>
       </form>
 
