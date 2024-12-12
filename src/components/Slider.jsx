@@ -18,20 +18,50 @@ const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const scrollLeft = () => {
+    const isSmallDevice = window.innerWidth < 768;
+    const isMediumDevice = window.innerWidth >= 768 && window.innerWidth < 1024;
+  
+    const scrollAmount = isSmallDevice
+      ? -250
+      : isMediumDevice
+      ? -700
+      : -750;
+  
+    const indexDecrement = isSmallDevice
+      ? 2
+      : isMediumDevice
+      ? 5
+      : 4;
+  
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 4);
+      setCurrentIndex(currentIndex - indexDecrement);
       sliderRef.current.scrollBy({
-        left: -750,
+        left: scrollAmount,
         behavior: 'smooth',
       });
     }
   };
-
+  
   const scrollRight = () => {
+    const isSmallDevice = window.innerWidth < 768;
+    const isMediumDevice = window.innerWidth >= 768 && window.innerWidth < 1024;
+  
+    const scrollAmount = isSmallDevice
+      ? 250
+      : isMediumDevice
+      ? 700
+      : 750;
+  
+    const indexIncrement = isSmallDevice
+      ? 2
+      : isMediumDevice
+      ? 5
+      : 4;
+  
     if (currentIndex < images.length - 1) {
-      setCurrentIndex(currentIndex + 4);
+      setCurrentIndex(currentIndex + indexIncrement);
       sliderRef.current.scrollBy({
-        left: 750,
+        left: scrollAmount,
         behavior: 'smooth',
       });
     }
@@ -91,7 +121,10 @@ const ImageSlider = () => {
         </div>
       </div>
       
-      {currentIndex <= images.length - 6 && (
+      {(window.innerWidth >= 768
+        ? currentIndex <= images.length - 6
+        : currentIndex <= images.length - 3
+       ) && (
       <button
       onClick={scrollRight}
       className="flex justify-center items-center w-[1.5rem] h-[7.5rem] rounded-[0.5rem] bg-slider-btn hover:bg-slider-btn-hover"
@@ -119,4 +152,3 @@ const ImageSlider = () => {
 };
 
 export default ImageSlider;
-
